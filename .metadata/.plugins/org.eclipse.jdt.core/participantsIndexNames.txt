@@ -7,3 +7,7 @@ INDEX VERSION 1.131
 /relationships/src/main/java
 /home/darkonnen/Documents/workspace-III/.metadata/.plugins/org.eclipse.jst.jsp.core/jspsearch/2815744632.index
 /dojosandninjas/src/main/java
+/home/darkonnen/Documents/workspace-III/.metadata/.plugins/org.eclipse.jst.jsp.core/jspsearch/3384372634.index
+/products-categories/src/main/java
+/home/darkonnen/Documents/workspace-III/.metadata/.plugins/org.eclipse.jst.jsp.core/jspsearch/1236553258.index
+/products-categories/src/main/java
