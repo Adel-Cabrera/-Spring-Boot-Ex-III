@@ -1,6 +1,8 @@
 INDEX VERSION 1.131
 /home/darkonnen/Documents/workspace-III/.metadata/.plugins/org.eclipse.jst.jsp.core/jspsearch/3384372634.index
 /products-categories/src/main/java
+/home/darkonnen/Documents/workspace-III/.metadata/.plugins/org.eclipse.jst.jsp.core/jspsearch/1001158033.index
+/pagination/src/main/java
 /home/darkonnen/Documents/workspace-III/.metadata/.plugins/org.eclipse.jst.jsp.core/jspsearch/2916285877.index
 /dojo-overflow/src/main/java
 /home/darkonnen/Documents/workspace-III/.metadata/.plugins/org.eclipse.jst.jsp.core/jspsearch/1236553258.index
@@ -13,7 +15,7 @@ INDEX VERSION 1.131
 /relationships/src/main/java
 /home/darkonnen/Documents/workspace-III/.metadata/.plugins/org.eclipse.jst.jsp.core/jspsearch/1527680688.index
 /relationships/src/main/java
-/home/darkonnen/Documents/workspace-III/.metadata/.plugins/org.eclipse.jst.jsp.core/jspsearch/3478192101.index
-/dojo-overflow/src/main/java
 /home/darkonnen/Documents/workspace-III/.metadata/.plugins/org.eclipse.jst.jsp.core/jspsearch/2599489910.index
 /dojosandninjas/src/main/java
+/home/darkonnen/Documents/workspace-III/.metadata/.plugins/org.eclipse.jst.jsp.core/jspsearch/3478192101.index
+/dojo-overflow/src/main/java
