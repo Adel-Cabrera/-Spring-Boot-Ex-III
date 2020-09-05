@@ -3,6 +3,8 @@ INDEX VERSION 1.131
 /products-categories/src/main/java
 /home/darkonnen/Documents/workspace-III/.metadata/.plugins/org.eclipse.jst.jsp.core/jspsearch/1001158033.index
 /pagination/src/main/java
+/home/darkonnen/Documents/workspace-III/.metadata/.plugins/org.eclipse.jst.jsp.core/jspsearch/251811838.index
+/WaterBnB/src/main/java
 /home/darkonnen/Documents/workspace-III/.metadata/.plugins/org.eclipse.jst.jsp.core/jspsearch/2916285877.index
 /dojo-overflow/src/main/java
 /home/darkonnen/Documents/workspace-III/.metadata/.plugins/org.eclipse.jst.jsp.core/jspsearch/1236553258.index
