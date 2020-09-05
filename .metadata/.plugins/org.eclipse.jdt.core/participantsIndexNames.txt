@@ -19,3 +19,5 @@ INDEX VERSION 1.131
 /dojosandninjas/src/main/java
 /home/darkonnen/Documents/workspace-III/.metadata/.plugins/org.eclipse.jst.jsp.core/jspsearch/3478192101.index
 /dojo-overflow/src/main/java
+/home/darkonnen/Documents/workspace-III/.metadata/.plugins/org.eclipse.jst.jsp.core/jspsearch/3464656287.index
+/EventsExcercise/src/main/java
