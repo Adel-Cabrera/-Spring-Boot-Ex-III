@@ -38,6 +38,8 @@ public class PoolController {
 	@RequestMapping("/landing")
 	public String landing(Model model, Principal principal) {
 		model.addAttribute("principal", principal);
+//		System.out.println("***********");		
+
 		return "landingView";
 	}
 	
@@ -46,7 +48,7 @@ public class PoolController {
 		User currentUser = userService.findByEmail(principal.getName());
 		List<Object[]> userListings = poolService.findUserPoolListingsById(currentUser.getId());
 		model.addAttribute("userListings", userListings);
-		
+		System.out.println("***********");		
 		return "dashboardView";
 	}
 	

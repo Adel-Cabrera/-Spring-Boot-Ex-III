@@ -27,10 +27,14 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
+		
+// ERROOOOOOOOOOOOOOOOOOOOOOOOOOR DE ACCESO
+		
 		http.
 			authorizeRequests()
 				.antMatchers("/static/**", "/pools/**", "/landing", "/search", "/registration").permitAll()
 				.antMatchers("/host/**").access("hasRole('HOST')")
+//				.antMatchers("/host/**").access("hasRole('host')")
 				.anyRequest().authenticated()
 				.and()
 			.formLogin()

@@ -4,6 +4,7 @@ import java.util.Date;
 import java.util.List;
 
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -43,7 +44,7 @@ public class User {
 	@Transient
 	private String passwordConfirmation;
 	
-	@ManyToMany(fetch=FetchType.EAGER, cascade=CascadeType.ALL)
+	@ManyToMany(fetch=FetchType.EAGER)
 	@JoinTable(
 			name="users_roles",
 			joinColumns = @JoinColumn(name = "user_id"),
@@ -52,7 +53,10 @@ public class User {
 	
 	private String role;
 	
+	@Column(updatable=false)
 	private Date createdAt;
+	
+	@Column
 	private Date updatedAt;
 	
 	@OneToMany(mappedBy="host", fetch=FetchType.LAZY, cascade=CascadeType.ALL)
