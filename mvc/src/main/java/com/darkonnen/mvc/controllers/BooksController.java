@@ -1,17 +1,17 @@
 package com.darkonnen.mvc.controllers;
 
-import java.util.List;
-
 import javax.validation.Valid;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.darkonnen.mvc.models.Book;
 import com.darkonnen.mvc.services.BookService;
@@ -24,12 +24,20 @@ public class BooksController {
 		this.bookService = bookService;
 	}
 
-	@RequestMapping("/books")
-	public String index(Model model) {
-		List<Book> books = bookService.allBooks();
-		model.addAttribute("books", books);
-		return "index";
+//	@RequestMapping("/books")
+//	public String index(Model model) {
+//		List<Book> books = bookService.allBooks();
+//		model.addAttribute("books", books);
+//		return "index";
+//	}
+	
+	@GetMapping("/books") 
+	public ModelAndView index() { // -> ModelAndView
+		ModelAndView mav = new ModelAndView("index"); // template name
+		mav.addObject("books", bookService.allBooks());
+		return mav;
 	}
+
 
 	@RequestMapping("/books/new")
 	public String newBook(@ModelAttribute("book") Book book) {
