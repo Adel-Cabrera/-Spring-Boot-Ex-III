@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<h1>All Books</h1>
+	<table>
+		<thead>
+			<tr>
+				<th>Title</th>
+				<th>Description</th>
+				<th>Language</th>
+				<th>Number of Pages</th>
+			</tr>
+		</thead>
+		<tbody>
+				<tr th:each="book : ${books}">
+					<td th:text="${book.title}"></td>
+					<td th:text="${book.description}"></td>
+					<td th:text="${book.language}"></td>
+					<td th:text="${book.numberOfPages}"></td>
+				</tr>
+		</tbody>
+	</table>
+	<a href="/books/new">New Book</a>
+</body>
+</html>

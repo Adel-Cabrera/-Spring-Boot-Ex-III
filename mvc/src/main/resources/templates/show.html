@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+	<h1>
+		<p th:text="${book.title}"></p>
+	</h1>
+	<p th:text="${book.description}"></p>
+	<p th:text="${book.language}"></p>
+	<p th:text="${book.numberOfPages}"></p>
+
+	<a href="#" th:href="@{/books/__${book.id}__/edit}">Edit Book</a>
+	
+<!-- 	<a href="#" th:href="@{/contacts/contactform?id=__${contact.id}__}">						 -->
+	
+	<form action="#" th:action="@{/books/__${book.id}__}" th:object="${book}" method="post">
+		<input type="hidden" name="_method" value="delete">
+		<input type="submit" value="Delete">
+	</form>
+
+</body>
+</html>

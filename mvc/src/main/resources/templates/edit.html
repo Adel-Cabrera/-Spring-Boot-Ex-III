@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+	<h1>Edit Book</h1>
+	<form action="#" th:action="@{/books/__${book.id}__}" th:object="${book}" method="post">
+		<input type="hidden" name="_method" value="put">
+		First Name: <input type="text" class="form-control" th:field="*{title}" th:value="${title}"></input>
+		<br/>
+		Description: <input type="text" class="form-control" th:field="*{description}" th:value="${description}"></input>
+		<br/>
+		Language: <input type="text" class="form-control" th:field="*{language}" th:value="${language}"></input>
+		<br/>
+		Number of pages: <input type="text" class="form-control" th:field="*{numberOfPages}" th:value="${numberOfPages}"></input>
+		<br/>		
+		
+		<input type="submit" value="Submit" />
+	</form>
+
+</body>
+</html>
