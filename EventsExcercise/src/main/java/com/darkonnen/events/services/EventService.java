@@ -42,12 +42,16 @@ public class EventService {
 	}
 	
 	public void editEvent(Long id, Event changedEvent) {
-		Optional<Event> original = this.eventRepository.findById(id);
-		original.setName(changedEvent.getName());
-		original.setDate(changedEvent.getDate());
-		original.setCity(changedEvent.getCity());
-		original.setState(changedEvent.getState());
-		this.eventRepository.save(original);
+		Optional<Event> original = eventRepository.findById(id);
+		if (original.isPresent()) {
+			original.setName(changedEvent.getName());
+			original.setDate(changedEvent.getDate());
+			original.setCity(changedEvent.getCity());
+			original.setState(changedEvent.getState());
+			eventRepository.save(original);
+
+		}  
+
 	}
 	
 	public void joinEvent(User user, Long eventID) {
@@ -62,17 +66,17 @@ public class EventService {
 	
 	public void leaveEvent(User user, Long eventID) {
 		List<Event> joinedEvents = user.getJoinedEvents();
-		Event event = this.eventRepository.findById(eventID);
+		Event event = eventRepository.findById(eventID);
 		int indexOfEvent = joinedEvents.indexOf(event);
 		if(indexOfEvent > -1 && !event.getHost().equals(user)) { // if the event is in the arraylist and the user isn't the host
 			joinedEvents.remove(indexOfEvent);
 		}
 		user.setJoinedEvents(joinedEvents);
-		this.userRepository.save(user);	
+		userRepository.save(user);	
 	}
 	
 	public Event getEventById(Long eventID) {
-		return this.eventRepository.findById(eventID);
+		return eventRepository.findById(eventID);
 	}
 	
 	public void addMessage(Message message, Long eventID, User user) {

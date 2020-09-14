@@ -31,20 +31,36 @@ public class BooksController {
 //		return "index";
 //	}
 	
+	// READ ALL
+	
 	@GetMapping("/books") 
 	public ModelAndView index() { // -> ModelAndView
 		ModelAndView mav = new ModelAndView("index"); // template name
 		mav.addObject("books", bookService.allBooks());
 		return mav;
 	}
+	
+	// READ ONE
+	
+	@RequestMapping(value = "books/{id}", method = RequestMethod.GET)
+	public String show(@PathVariable("id") Long id, Model model) {
+		Book book = bookService.findBook(id);
 
+		model.addAttribute("book", book);
 
+		return "show";
+	}
+	
+
+	// NEW
+	
 	@RequestMapping("/books/new")
 	public String newBook(@ModelAttribute("book") Book book) {
 		return "new";
 
 	}
 
+	// CREATE
 	@RequestMapping(value = "/books", method = RequestMethod.POST)
 	public String create(@Valid @ModelAttribute("book") Book book, BindingResult result) {
 		if (result.hasErrors()) {
@@ -55,14 +71,8 @@ public class BooksController {
 		}
 	}
 
-	@RequestMapping(value = "books/{id}", method = RequestMethod.GET)
-	public String show(@PathVariable("id") Long id, Model model) {
-		Book book = bookService.findBook(id);
-
-		model.addAttribute("book", book);
-
-		return "show";
-	}
+	
+	// EDIT
 
 	@RequestMapping("books/{id}/edit")
 	public String edit(@PathVariable("id") Long id, Model model) {
@@ -71,6 +81,8 @@ public class BooksController {
 		model.addAttribute("book", book);
 		return "edit";
 	}
+	
+	// UPDATE
 
 	@RequestMapping(value = "/books/{id}", method = RequestMethod.PUT)
 	public String update(@Valid @ModelAttribute("book") Book book, BindingResult result, @PathVariable("id") Long id,
@@ -84,6 +96,8 @@ public class BooksController {
 		}
 	}
 
+	// DESTROY - DELETE
+	
 	@RequestMapping(value = "/books/{id}", method = RequestMethod.DELETE)
 	public String destory(@PathVariable("id") Long id) {
 		bookService.deleteBook(id);

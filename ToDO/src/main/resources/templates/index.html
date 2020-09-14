@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<h1>TASKS</h1>
+	<table>
+		
+		<thead>
+			<th>Name</th>
+			<th>Description</th>
+			<th>Actions</th>
+		</thead>
+		<tbody>
+			<tr th:each="task : ${listTasks}">
+				<td th:text="${task.taskName}">TaskName</td> 
+				<td th:text="${task.description}">Description</td>
+				<td>
+					<a th:href="@{'/todo/edit/' + ${task.id}}">Edit </a>
+					<a th:href="@{'/todo/delete/' + ${task.id}}">Delete </a>
+				</td>
+			</tr>				
+			
+		</tbody>
+	</table>
+	
+	<a href="/todo/new">New Task</a>
+
+</body>
+</html>

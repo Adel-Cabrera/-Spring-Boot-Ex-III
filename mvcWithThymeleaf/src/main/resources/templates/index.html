@@ -22,11 +22,11 @@
 				<td th:text="${book.description}"></td>
 				<td th:text="${book.language}"></td>
 				<td th:text="${book.numberOfPages}"></td>
-				<td><a href="#" th:href="@{/books/__${book.id}__/edit}">Edit
-						Book</a>
-					<form action="#" th:action="@{/books/__${book.id}__}" th:object="${book}" method="post">
-						<input type="hidden" name="_method" value="delete"> <input type="submit" value="Delete">
-					</form>
+				<td>
+				<a href="#" th:href="@{/books/__${book.id}__/edit}">Edit Book</a>
+				<form action="#" th:action="@{/books/__${book.id}__}" th:object="${book}" method="post">
+					<input type="hidden" name="_method" value="delete"> <input type="submit" value="Delete">
+				</form>
 				</td>
 			</tr>
 		</tbody>

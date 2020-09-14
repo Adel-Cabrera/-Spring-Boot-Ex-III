@@ -18,16 +18,16 @@ public class BookService {
 	}
 
 	// Devolviendo todos los libros.
+	// READ ALL
+	
 	public List<Book> allBooks() {
 		return bookRepository.findAll();
 	}
 
-	// Creando un libro.
-	public Book createBook(Book b) {
-		return bookRepository.save(b);
-	}
 
 	// Obteniendo la información de un libro
+	// READ ONE
+	
 	public Book findBook(Long id) {
 		Optional<Book> optionalBook = bookRepository.findById(id);
 		if (optionalBook.isPresent()) {
@@ -36,7 +36,16 @@ public class BookService {
 			return null;
 		}
 	}
-
+	
+	// Creando un libro.
+	//CREATE
+	
+	public Book createBook(Book b) {
+		return bookRepository.save(b);
+	}
+	
+	
+	// UPDATE
 	public Book updateBook(Long id, String title, String desc, String lang, Integer numOfPages) {
 		Optional<Book> optionalBook = bookRepository.findById(id);
 		if (optionalBook.isPresent()) {
@@ -54,7 +63,10 @@ public class BookService {
 			return null;
 		}
 	}
-
+	
+	
+	// DESTROY - DELETE
+	
 	public void deleteBook(Long id) {
 		Optional<Book> optionalBook = bookRepository.findById(id);
 		if (optionalBook.isPresent()) {

@@ -29,6 +29,18 @@ public class HomeController {
 		return "/dojos/new.jsp";
 	}
 	
+	@RequestMapping(value="dojos/new", method=RequestMethod.POST)
+	public String createDojo(@Valid @ModelAttribute("dojo") Dojo dojo, BindingResult result) {
+		if (result.hasErrors()) {
+			return "/dojos/new.jsp";
+		} else {
+			masterService.createDojo(dojo);
+			
+			return "redirect:/ninjas/new";
+		}
+	}
+	
+	
 	@RequestMapping(value="ninjas/new", method=RequestMethod.GET)
 	public String newNinja(@ModelAttribute("ninja") Ninja ninja, Model model) {
 		List<Dojo> dojos = masterService.allDojos();
@@ -45,16 +57,6 @@ public class HomeController {
 		return "dojos/show.jsp";
 	}
 		
-	@RequestMapping(value="dojos/new", method=RequestMethod.POST)
-	public String createDojo(@Valid @ModelAttribute("dojo") Dojo dojo, BindingResult result) {
-		if (result.hasErrors()) {
-			return "/dojos/new.jsp";
-		} else {
-			masterService.createDojo(dojo);
-			
-			return "redirect:/ninjas/new";
-		}
-	}
 	
 	@RequestMapping(value="ninjas/new", method=RequestMethod.POST)
 	public String createNinja(@Valid @ModelAttribute("ninja") Ninja ninja, BindingResult result, Model model) {

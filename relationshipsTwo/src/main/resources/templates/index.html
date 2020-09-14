@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<h1>All Books</h1>
+	<table>
+		<thead>
+			<tr>
+				<th>firstName</th>
+				<th>lastName</th>
+				<th>license</th>
+				<th>exDate</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr th:each="person : ${persons}">
+				<td th:text="${person.firstName}"></td>
+				<td th:text="${person.lastName}"></td>
+				<td th:text="${person.license.number}"></td>
+				<td th:text="${person.license.expirationDate}"></td>
+				
+<!-- 				<td><a href="#" th:href="@{/books/__${book.id}__/edit}">Edit -->
+<!-- 						Book</a> -->
+<!-- 					<form action="#" th:action="@{/books/__${book.id}__}" -->
+<!-- 						th:object="${book}" method="post"> -->
+<!-- 						<input type="hidden" name="_method" value="delete"> <input -->
+<!-- 							type="submit" value="Delete"> -->
+<!-- 					</form></td> -->
+			</tr>
+		</tbody>
+	</table>
+	<a href="/persons/new">New Person</a>
+
+</body>
+</html>
