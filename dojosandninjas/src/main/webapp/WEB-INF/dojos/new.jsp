@@ -16,6 +16,9 @@
 					<div class="row justify-content-center border-bottom pb-2">
 						<h2 class="text-center">New Dojo</h2>
 					</div>
+					
+					<p><c:out value="${error}"></c:out><p>
+					
 					<div class="row justify-content-center">
 						<div class="col-4 p-2">
 							<form:form action="/dojos/new" method="post" modelAttribute="dojo">

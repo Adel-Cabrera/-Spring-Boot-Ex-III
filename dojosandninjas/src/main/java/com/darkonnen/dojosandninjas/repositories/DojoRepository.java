@@ -10,4 +10,9 @@ import com.darkonnen.dojosandninjas.models.Dojo;
 @Repository
 public interface DojoRepository extends CrudRepository<Dojo, Long> {
 	List<Dojo> findAll();
+	
+	boolean existsDojoByName(String name);
+
+//    List<Dojo> findByName(String name);
+	
 }

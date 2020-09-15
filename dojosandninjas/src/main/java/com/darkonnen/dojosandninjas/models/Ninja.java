@@ -37,6 +37,7 @@ public class Ninja {
 	@Column(updatable=false) 
 	private Date createdAt;
 	private Date updatedAt;
+	
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name="dojo_id")
 	private Dojo dojo;
