@@ -18,6 +18,7 @@
 				<td th:text="${task.taskName}">TaskName</td> 
 				<td th:text="${task.description}">Description</td>
 				<td>
+					<a th:href="@{'/todo/' + ${task.id}}">Info</a>
 					<a th:href="@{'/todo/edit/' + ${task.id}}">Edit </a>
 					<a th:href="@{'/todo/delete/' + ${task.id}}">Delete </a>
 				</td>

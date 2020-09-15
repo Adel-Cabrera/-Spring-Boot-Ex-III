@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<p th:text="${task.id}"></p>
+	<p th:text="${task.taskName}"></p>
+	<p th:text="${task.description}"></p>
+	
+	<a href="#" th:href="@{/todo}">Go back</a>
+
+</body>
+</html>
