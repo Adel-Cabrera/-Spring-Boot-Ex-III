@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>CRUD EXAMPLE</title>
+</head>
+<body>
+<h1> NUEVA TAREA</h1>
+
+<!-- 	Thymeleaf -> Cuando yo lo envíe a la ruta del controlador, debo usar @ -->
+<!-- 	Cuando queremos leer, usamos $ -->
+<!-- 	Cuando queremos enviar información para guardar, usamos * -->
+	<form action="#" th:action="@{/save}" th:object="${tarea}" method="post">
+		<label for="nombreTarea">Nombre tarea:</label>
+		<input type="text" th:field="*{nombreTarea}"/>
+		<label for="descripcionTarea">Descripcion tarea:</label>
+		<input type="text" th:field="*{descripcionTarea}"/>
+		<button type="submit">Enviar</button>
+	</form>
+	
+	<a href="/">Volver</a>
+
+</body>
+</html>

@@ -39,7 +39,7 @@ public class Event {
 //events
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name="user_id")
-	private User hostess;
+	private User hostess; // MUCHOS EVENTOS PERTENECEN SOLO A UN USUARIO
 	
     @ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(
@@ -47,7 +47,8 @@ public class Event {
         joinColumns = @JoinColumn(name = "event_id"), 
         inverseJoinColumns = @JoinColumn(name = "user_id")
         )
-    private List<User> usersAttending;
+    private List<User> usersAttending; // MUCHOS EVENTOS PUEDEN TENER MUCHOS ASISTENTES
+    
 //messages
 	@OneToMany(mappedBy="event", fetch = FetchType.LAZY)
 	private List<Message> messages;
@@ -101,6 +102,7 @@ public class Event {
 	public void setHostess(User hostess) {
 		this.hostess = hostess;
 	}
+	
 	public List<User> getUsersAttending() {
 		return usersAttending;
 	}

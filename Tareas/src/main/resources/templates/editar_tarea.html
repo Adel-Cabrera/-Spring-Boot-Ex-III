@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>CRUD EXAMPLE</title>
+</head>
+<body>
+<h1> EDITAR TAREA</h1>
+	<form action="#" th:action="@{/save}" th:object="${tarea}" method="post">
+
+<!-- 	 	SE LE AGREGA ESTA LÍNEA PARA EDITAR		 -->
+		<input type="text" th:field="*{id}" readonly="readonly"/> 
+ 
+		<label for="nombreTarea">Nombre tarea:</label>
+		<input type="text" th:field="*{nombreTarea}"/>
+		<label for="descripcionTarea">Descripcion tarea:</label>
+		<input type="text" th:field="*{descripcionTarea}"/>
+		<button type="submit">Enviar</button>
+	</form>
+	
+	
+	
+	<a href="/">Volver</a>
+
+</body>
+</html>

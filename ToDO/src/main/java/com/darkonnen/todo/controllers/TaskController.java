@@ -72,8 +72,7 @@ public class TaskController {
 		return "redirect:/todo";
 	}
 	
-	// UPDATE
-	
+	// UPDATE	
 	
 	@RequestMapping(value="/edit/{id}")
 	public String saveTask(@PathVariable("id") Long id, Model model) { // UPDATE -> PATHVARIABLE

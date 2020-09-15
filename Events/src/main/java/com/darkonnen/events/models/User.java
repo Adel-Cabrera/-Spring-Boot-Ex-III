@@ -50,15 +50,15 @@ public class User {
 
 	//events
 	@OneToMany(mappedBy = "hostess", fetch = FetchType.LAZY)
-	private List<Event> hosting;
+	private List<Event> hosting; // UN USUARIO PUEDE CREAR MUCHOS EVENTOS
 
 	@ManyToMany(fetch = FetchType.LAZY)
 	@JoinTable(name = "attending", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "event_id"))
-	private List<Event> eventsJoined;
+	private List<Event> eventsJoined; // UN USUARIO PUEDE ASISTIR A MUCHOS EVENTOS
 
 	//messages
 	@OneToMany(mappedBy = "user", fetch = FetchType.LAZY)
-	private List<Message> messages;
+	private List<Message> messages; // 
 
 
 	//constructors

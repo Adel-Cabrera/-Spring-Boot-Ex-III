@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>CRUD EXAMPLE</title>
+</head>
+<body>
+	
+	<h1>Lista de Tareas por hacer:</h1>
+	
+	<table>
+		<thead>
+			<th>Nombre tarea</th>
+			<th>Descripción</th>
+			<th>Acciones</th>
+		</thead>
+		<tbody>
+<!-- 		table row -->
+			<tr th:each="tarea : ${tareas}">
+				<td th:text="${tarea.nombreTarea}"></td>
+				<td th:text="${tarea.descripcionTarea}"></td>
+				<td>
+				<a th:href="'/' + ${tarea.id}">Info</a>				
+				<a th:href="'/editar/' + ${tarea.id}">Editar</a>
+				<a th:href="'/borrar/' + ${tarea.id}">Borrar</a>
+				</td>				
+			</tr>
+		</tbody>
+	</table>
+	<a href="/new">Nueva tarea</a>
+
+</body>
+</html>
