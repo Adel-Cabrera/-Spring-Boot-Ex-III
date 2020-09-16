@@ -37,6 +37,10 @@ public class NinjaController {
 		
 		return "/ninjas/new.jsp";
 	}
+	
+	// PUEDEN HABER MÚLTIPLES FORMAS DE HACER LAS COSAS
+	
+	// Thymeleaf
 
 	@RequestMapping(value="ninjas/new", method=RequestMethod.POST)
 	public String createNinja(@Valid @ModelAttribute("ninja") Ninja ninja, BindingResult result, Model model) {

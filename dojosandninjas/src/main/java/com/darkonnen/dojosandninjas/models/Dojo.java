@@ -22,14 +22,15 @@ public class Dojo {
 	@Id 
 	@GeneratedValue(strategy = GenerationType.IDENTITY) 
 	private Long id;
-	@NotNull(message="Dojo name cannot be null!")
+	@NotNull(message="Dojo name cannot be null!") // Validaciones
 	@Size(min=2, max=20, message="Dojo must be between 2 and 20 characters!")
 	private String name;
-	@Column(updatable=false) 
+	
+	@Column(updatable=false) // -> Importante 
 	private Date createdAt;
 	private Date updatedAt;
 
-	@OneToMany(mappedBy="dojo", fetch = FetchType.LAZY)
+	@OneToMany(mappedBy="dojo", fetch = FetchType.LAZY) // Mapeo en ambas entidades
 	private List<Ninja> ninjas;
 	
 	public Dojo() {

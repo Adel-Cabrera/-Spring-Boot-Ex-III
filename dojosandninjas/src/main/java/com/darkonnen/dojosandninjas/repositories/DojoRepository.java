@@ -9,10 +9,14 @@ import com.darkonnen.dojosandninjas.models.Dojo;
 
 @Repository
 public interface DojoRepository extends CrudRepository<Dojo, Long> {
-	List<Dojo> findAll();
 	
-	boolean existsDojoByName(String name);
-
+	List<Dojo> findAll(); // List <T> findAll(); SELECT * FROM DOJO.dojos
+	
+	boolean existsDojoByName(String name); // Spring Data JPA Query Creation; Creación automática de la Query.
+	
 //    List<Dojo> findByName(String name);
+	
+	// Exposición de métodos CRUD
+
 	
 }

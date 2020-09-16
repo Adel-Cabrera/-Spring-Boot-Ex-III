@@ -26,7 +26,7 @@ public class DojoController {
 	// NEW
 
 	@RequestMapping(value = "dojos/new", method = RequestMethod.GET)
-	public String newDojo(@ModelAttribute("dojo") Dojo dojo) {
+	public String newDojo(@ModelAttribute("dojo") Dojo dojo) { // Objeto Dojo vacío
 		return "/dojos/new.jsp";
 	}
 
@@ -58,7 +58,6 @@ public class DojoController {
 	public String flashMessage(RedirectAttributes redirectAttributes) {
 		redirectAttributes.addFlashAttribute("error", "Dojo name already exists.");
 		return "redirect:/dojos/new";
-	
 	}
 
 	// READ ONE

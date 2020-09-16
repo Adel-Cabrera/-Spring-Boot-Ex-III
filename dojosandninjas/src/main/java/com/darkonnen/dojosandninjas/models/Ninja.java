@@ -38,9 +38,9 @@ public class Ninja {
 	private Date createdAt;
 	private Date updatedAt;
 	
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne(fetch = FetchType.LAZY) // MAPEO
 	@JoinColumn(name="dojo_id")
-	private Dojo dojo;
+	private Dojo dojo; // N a 1, guardo la entidad a la que pertenezco
 	
 	public Ninja() {
 	}
@@ -112,5 +112,13 @@ public class Ninja {
 	@PreUpdate 
 	protected void onUpdate() {
 		this.updatedAt = new Date();
-	}		
+	}
+
+	@Override
+	public String toString() {
+		return "Ninja [id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + ", age=" + age
+				+ ", createdAt=" + createdAt + ", updatedAt=" + updatedAt + ", dojo=" + dojo + "]";
+	}
+	
+	
 }

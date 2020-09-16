@@ -10,4 +10,6 @@ import com.darkonnen.dojosandninjas.models.Ninja;
 @Repository 
 public interface NinjaRepository extends CrudRepository<Ninja, Long> {
 	List<Ninja> findAll();
+	
+	// Exposición de métodos CRUD
 }
