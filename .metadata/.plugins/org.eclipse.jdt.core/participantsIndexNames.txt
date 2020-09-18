@@ -1,4 +1,6 @@
 INDEX VERSION 1.131
+/home/darkonnen/Documents/workspace-III/.metadata/.plugins/org.eclipse.jst.jsp.core/jspsearch/3139763987.index
+/posts/src/main/java
 /home/darkonnen/Documents/workspace-III/.metadata/.plugins/org.eclipse.jst.jsp.core/jspsearch/3384372634.index
 /products-categories/src/main/java
 /home/darkonnen/Documents/workspace-III/.metadata/.plugins/org.eclipse.jst.jsp.core/jspsearch/251811838.index
