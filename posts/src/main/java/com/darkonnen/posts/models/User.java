@@ -9,6 +9,9 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.PrePersist;
 import javax.persistence.PreUpdate;
@@ -27,20 +30,17 @@ public class User {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
-	@Size(min = 6, max = 30)
-	private String firstName;
+    @Size(min=3)
+    private String username;
 
-	@Size(min = 6, max = 30)
-	private String lastName;
-
-	@Email
+//	@Email
+    @Size(min=1)
 	private String email;
 
-	@Size(min = 8)
-	private String password;
+    @Size(min=5, message="Password must be greater than 5 characters")
+    private String password;
 
 	@Transient
-	@Size(min = 8)
 	private String passwordConfirmation;
 
 	@Column(updatable = false)
@@ -51,21 +51,19 @@ public class User {
 	private Date updatedAt;
 
 	public User() {
-		this.createdAt = new Date();
-		this.updatedAt = new Date();
-	}
-
-	public User(String firstName, String lastName,
-			String email, String password) {
-		this.firstName = firstName;
-		this.lastName = lastName;
-		this.email = email;
-		this.password = password;
+//		this.createdAt = new Date();
+//		this.updatedAt = new Date();
 	}
 
 	// RELACIONES
 
-	// Un usuario puede tener muchos posteos
+	// ROLES
+
+	@ManyToMany(fetch = FetchType.EAGER)
+	@JoinTable(name = "users_roles", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "role_id"))
+	private List<Role> roles;
+
+	// RELACIÓN 1:N
 
 	@OneToMany(mappedBy = "creatorPost", fetch = FetchType.LAZY)
 	List<Post> userPosts;
@@ -78,6 +76,14 @@ public class User {
 		this.userPosts = userPosts;
 	}
 
+	public List<Role> getRoles() {
+		return roles;
+	}
+
+	public void setRoles(List<Role> roles) {
+		this.roles = roles;
+	}	
+
 	public Long getId() {
 		return id;
 	}
@@ -86,20 +92,12 @@ public class User {
 		this.id = id;
 	}
 
-	public String getFirstName() {
-		return firstName;
+	public String getUsername() {
+		return username;
 	}
 
-	public void setFirstName(String firstName) {
-		this.firstName = firstName;
-	}
-
-	public String getLastName() {
-		return lastName;
-	}
-
-	public void setLastName(String lastName) {
-		this.lastName = lastName;
+	public void setUsername(String username) {
+		this.username = username;
 	}
 
 	public String getEmail() {
@@ -151,5 +149,14 @@ public class User {
 	protected void onUpdate() {
 		this.updatedAt = new Date();
 	}
+
+	@Override
+	public String toString() {
+		return "User [id=" + id + ", username=" + username + ", email=" + email + ", password=" + password
+				+ ", passwordConfirmation=" + passwordConfirmation + ", createdAt=" + createdAt + ", updatedAt="
+				+ updatedAt + ", roles=" + roles + ", userPosts=" + userPosts + "]";
+	}
+	
+	
 
 }

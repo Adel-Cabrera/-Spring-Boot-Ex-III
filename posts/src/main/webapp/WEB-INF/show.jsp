@@ -8,9 +8,15 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>Post detail</title>
 </head>
 <body>
+	<p>${creatorPost.username}</p>
+	<p>${post.postTitle}</p>
+	<p>${post.postDescription}</p>
+	
+<%-- 	<p>${postDescription}</p> --%>
+<a href="/posts">Go back</a>
 
 </body>
 </html>

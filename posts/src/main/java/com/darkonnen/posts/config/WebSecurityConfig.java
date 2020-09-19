@@ -11,13 +11,14 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 @Configuration
-@EnableWebSecurity
+@EnableWebSecurity(debug = false)
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
-
+	
     private UserDetailsService userDetailsService;
+    
     public WebSecurityConfig(UserDetailsService userDetailsService) {
         this.userDetailsService = userDetailsService;
-    }
+    }    
     
     @Bean
     public BCryptPasswordEncoder bCryptPasswordEncoder() {
@@ -28,11 +29,13 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http.
             authorizeRequests()
-                .antMatchers("/static/**", "/register").permitAll() 
+                .antMatchers("/static/**", "/css/**", "/js/**", "/registration").permitAll()
+                .antMatchers("/admin/**").access("hasRole('ADMIN')")              
                 .anyRequest().authenticated()
                 .and()
             .formLogin()
                 .loginPage("/login")
+                .defaultSuccessUrl("/home",true)
                 .permitAll()
                 .and()
             .logout()

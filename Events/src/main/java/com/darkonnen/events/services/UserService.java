@@ -11,6 +11,7 @@ import com.darkonnen.events.repositories.UserRepository;
 
 @Service
 public class UserService {
+
 	private UserRepository userRepository;
 	private BCryptPasswordEncoder bCryptPasswordEncoder;
 
