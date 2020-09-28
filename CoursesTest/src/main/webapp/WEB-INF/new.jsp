@@ -10,10 +10,10 @@
 <title>New course</title>
 </head>
 <body>
-	<form:errors path="course.*"/>
 
-	<form:form method="POST" action="/courses/create"
-		modelAttribute="newCourse">
+	<form:errors path="course.*"/>	
+
+	<form:form method="POST" action="/courses/create" modelAttribute="newCourse">
 		
 		<p>
 			<form:label path="courseName">Course name: </form:label>

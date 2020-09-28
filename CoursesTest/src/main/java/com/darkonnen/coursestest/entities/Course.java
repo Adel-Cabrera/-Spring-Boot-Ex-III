@@ -33,7 +33,7 @@ public class Course {
 	private String courseName;
 
 //	@NotEmpty
-	@Size(min = 6)
+	@Size(min = 6,message="Username must be greater than 6 characters")
 	private String instructorName;
 
 //	@Min(1)

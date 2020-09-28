@@ -29,12 +29,12 @@ public class CourseController {
 
 	@Autowired
 	private UserService userService;
-	
-	@Autowired
-	private CourseValidator courseValidator;
 
 	@Autowired
 	private CourseService courseService;
+	
+	@Autowired
+	private CourseValidator courseValidator;
 
 	// READ ALL
 
@@ -81,18 +81,19 @@ public class CourseController {
 	public String newCourse(Model model) {
 		Course newCourse = new Course();
 		model.addAttribute("newCourse", newCourse);
+		
 		return "new";
 	}
 
 	// CREATE
 	@PostMapping(value="/create")
-	public String createCourse(@Valid @ModelAttribute("newCourse") Course course, Principal principal, BindingResult result) {
-		
+	public String createCourse(@ModelAttribute("newCourse") @Valid Course course, Principal principal, BindingResult result) {
+
 		courseValidator.validate(course, result);
 		
 		if(result.hasErrors()) {
-			return "new";	
-		}else {
+			return "redirect:/courses/new";	
+		} else {
 			String email = principal.getName();
 			User creatorCourse = userService.findUserByEmail(email);
 			course.setCreatorCourse(creatorCourse);
