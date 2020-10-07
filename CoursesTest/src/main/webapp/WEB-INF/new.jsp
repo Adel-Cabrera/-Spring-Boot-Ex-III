@@ -18,15 +18,20 @@
 		<p>
 			<form:label path="courseName">Course name: </form:label>
 			<form:input type="text" path="courseName" />
+			<form:errors path="courseName"/>
 		</p>
 		<p>
 			<form:label path="instructorName">Instructor's name: </form:label>
 			<form:input type="text" path="instructorName" />
+			<form:errors path="instructorName"/>
+			
 		</p>
 
 		<p>
 			<form:label path="courseCapacity">Max capacity: </form:label>
 			<form:input type="number" path="courseCapacity" />
+<%-- 			<form:errors path="courseCapacity"/> --%>
+			
 		</p>
 
 		<input type="submit" value="Create" />

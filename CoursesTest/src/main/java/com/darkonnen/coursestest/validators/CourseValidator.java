@@ -23,9 +23,21 @@ public class CourseValidator implements Validator {
 	public void validate(Object object, Errors errors) {
 		Course course = (Course) object;
 
-		if (course.getCourseName() == null || course.getCourseName() == "") {
+		if (course.getCourseName() == null) {
 			errors.rejectValue("courseName", "Size");
 		}
+		
+		if (course.getInstructorName() == null) {
+			errors.rejectValue("instructorName", "Size");
+		}
+		
+		if (course.getCourseCapacity() <= 1) {
+			errors.rejectValue("courseCapacity", "Size");
+		}
+
+		
+		
+
 	}
 
 }

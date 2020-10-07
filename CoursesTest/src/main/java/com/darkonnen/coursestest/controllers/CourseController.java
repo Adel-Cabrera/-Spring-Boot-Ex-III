@@ -87,12 +87,13 @@ public class CourseController {
 
 	// CREATE
 	@PostMapping(value="/create")
-	public String createCourse(@ModelAttribute("newCourse") @Valid Course course, Principal principal, BindingResult result) {
+	public String createCourse(@ModelAttribute("newCourse") @Valid Course course, BindingResult result, Principal principal) {
 
 		courseValidator.validate(course, result);
 		
-		if(result.hasErrors()) {
-			return "redirect:/courses/new";	
+		if(result.hasErrors()) {			
+//			return "redirect:/courses/create";	
+			return "new";
 		} else {
 			String email = principal.getName();
 			User creatorCourse = userService.findUserByEmail(email);

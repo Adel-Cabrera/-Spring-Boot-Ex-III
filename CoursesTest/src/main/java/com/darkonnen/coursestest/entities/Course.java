@@ -16,6 +16,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.PrePersist;
 import javax.persistence.PreUpdate;
 import javax.persistence.Table;
+import javax.validation.constraints.Min;
 import javax.validation.constraints.Size;
 
 import org.springframework.format.annotation.DateTimeFormat;
@@ -29,11 +30,11 @@ public class Course {
 	private Long id;
 
 //	@NotEmpty
-	@Size(min = 6,message="Username must be greater than 6 characters")
+	@Size(min = 6,message="coursename 6 chars")
 	private String courseName;
 
 //	@NotEmpty
-	@Size(min = 6,message="Username must be greater than 6 characters")
+	@Size(min = 6,message="instructor 6 chars")
 	private String instructorName;
 
 //	@Min(1)
